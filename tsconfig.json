@@ -12,5 +12,10 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true
-  }
+  },
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
