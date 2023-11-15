@@ -1,3 +1,4 @@
 .idea
 *.pem
 node_modules
+dist
