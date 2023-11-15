@@ -26,11 +26,12 @@
   "dependencies": {
     "@solidjs/router": "^0.8.3",
     "@tma.js/colors": "^0.0.5",
-    "@tma.js/init-data": "^0.2.19",
-    "@tma.js/navigation": "^0.0.12",
-    "@tma.js/sdk": "^0.12.9",
-    "@tma.js/sdk-solid": "^0.1.15",
-    "@tma.js/solid-router-integration": "^0.0.2",
+    "@tma.js/init-data": "^0.2.21",
+    "@tma.js/launch-params": "^1.0.0",
+    "@tma.js/navigation": "^1.0.0",
+    "@tma.js/sdk": "^0.13.2",
+    "@tma.js/sdk-solid": "^0.1.19",
+    "@tma.js/solid-router-integration": "^0.0.5",
     "solid-js": "^1.7.6"
   }
 }
