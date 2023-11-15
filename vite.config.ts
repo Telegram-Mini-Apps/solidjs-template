@@ -17,8 +17,8 @@ function getServerOptions(): ServerOptions {
   return {
     port: 443,
     https: {
-      cert: readFileSync(resolve(dir, '../../https-cert.pem')),
-      key: readFileSync(resolve(dir, '../../https-key.pem')),
+      cert: readFileSync(resolve(dir, './https-cert.pem')),
+      key: readFileSync(resolve(dir, './https-key.pem')),
     },
     host: 'tma.internal',
   };
@@ -35,7 +35,7 @@ export default defineConfig({
   ],
   // Uncomment this line in case, you would like to run Vite dev server using HTTPS and in case,
   // you have key and certificate.
-  // server: getServerOptions(),
+  server: getServerOptions(),
   build: {
     target: 'esnext',
   },
