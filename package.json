@@ -15,6 +15,7 @@
     "access": "public"
   },
   "devDependencies": {
+    "@types/node": "^20.10.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-plugin-solid": "^0.12.1",
@@ -25,13 +26,9 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.8.3",
-    "@tma.js/colors": "^0.0.5",
-    "@tma.js/init-data": "^0.2.21",
-    "@tma.js/launch-params": "^1.0.0",
-    "@tma.js/navigation": "^1.0.0",
-    "@tma.js/sdk": "^0.13.2",
-    "@tma.js/sdk-solid": "^0.1.19",
-    "@tma.js/solid-router-integration": "^0.0.5",
+    "@tma.js/sdk": "^1.0.0",
+    "@tma.js/sdk-solid": "^1.0.0",
+    "@tma.js/solid-router-integration": "^0.0.7",
     "solid-js": "^1.7.6"
   }
 }
