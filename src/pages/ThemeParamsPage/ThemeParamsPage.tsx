@@ -1,4 +1,4 @@
-import { useSDK } from '@tma.js/sdk-solid';
+import { useThemeParams } from '@tma.js/sdk-solid';
 import { useNavigate } from '@solidjs/router';
 
 import { Link } from '../../components/Link';
@@ -7,7 +7,7 @@ import styles from './styles.module.css';
 import { DisplayData, Line } from '../../components/DisplayData';
 
 export function ThemeParamsPage() {
-  const { themeParams } = useSDK();
+  const themeParams = useThemeParams();
   const navigate = useNavigate();
   const lines = (): Line[] => {
     const {

@@ -1,6 +1,6 @@
 import { Match, Switch } from 'solid-js';
-import { useSDK } from '@tma.js/sdk-solid';
-import type { Chat, User } from '@tma.js/init-data';
+import { useInitData, useInitDataRaw } from '@tma.js/sdk-solid';
+import type { Chat, User } from '@tma.js/sdk';
 
 import { Link } from '../../components/Link';
 import { DisplayData, type Line } from '../../components/DisplayData';
@@ -46,7 +46,9 @@ function getChatLines(chat: Chat): Line[] {
 }
 
 export function InitDataPage() {
-  const { initData, initDataRaw } = useSDK();
+  const initData = useInitData();
+  const initDataRaw = useInitDataRaw();
+
   const whenWithData = () => {
     const typed = initData();
     const raw = initDataRaw();

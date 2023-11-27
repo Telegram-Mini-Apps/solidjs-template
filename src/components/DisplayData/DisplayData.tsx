@@ -1,9 +1,9 @@
 import { For, Match, Switch } from 'solid-js';
-import { isRGB, type RGB } from '@tma.js/colors';
+import { isRGB, type RGB } from '@tma.js/sdk';
 
 import styles from './styles.module.css';
 
-type LineValue = string | null | Line[];
+type LineValue = string | null | undefined | Line[];
 export type Line = [title: string, value: LineValue];
 
 interface DisplayDataProps {

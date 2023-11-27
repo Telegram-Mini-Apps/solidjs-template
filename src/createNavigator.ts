@@ -1,8 +1,8 @@
 import {
+  retrieveLaunchData,
   HashNavigator,
   type HashNavigatorOptions,
-} from '@tma.js/navigation';
-import { retrieveLaunchData } from '@tma.js/launch-params';
+} from '@tma.js/sdk';
 
 export function createNavigator(): HashNavigator {
   let navigator: HashNavigator | undefined;
@@ -22,9 +22,6 @@ export function createNavigator(): HashNavigator {
         console.error('Unable to restore hash navigator state.', e);
       }
     }
-
-
-    console.log('RELOAD')
   }
 
   // In case, we could not restore its state, or it is the fresh start, we
