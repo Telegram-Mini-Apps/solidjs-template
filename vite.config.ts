@@ -4,10 +4,6 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig, type ServerOptions } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
 
-// import devtools from 'solid-devtools/vite';
-
-// TODO: Add docs link for getServerOptions.
-
 /**
  * Returns Vite dev server options.
  */
