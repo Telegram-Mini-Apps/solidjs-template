@@ -28,7 +28,7 @@
     "@solidjs/router": "^0.8.3",
     "@tma.js/sdk": "^1.0.0",
     "@tma.js/sdk-solid": "^1.0.0",
-    "@tma.js/solid-router-integration": "^0.0.7",
+    "@tma.js/solid-router-integration": "^1.0.0",
     "solid-js": "^1.7.6"
   }
 }
