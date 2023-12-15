@@ -26,8 +26,8 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.8.3",
-    "@tma.js/sdk": "^1.0.0",
-    "@tma.js/sdk-solid": "^1.0.0",
+    "@tma.js/sdk": "^1.2.0",
+    "@tma.js/sdk-solid": "^1.1.0",
     "@tma.js/solid-router-integration": "^1.0.0",
     "solid-js": "^1.7.6"
   }

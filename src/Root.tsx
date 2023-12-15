@@ -1,72 +1,60 @@
-import {
-  createMemo,
-  Switch,
-  Match,
-  type ParentProps,
-} from 'solid-js';
-import { InitOptions, SDKProvider, useSDKContext } from '@tma.js/sdk-solid';
+import { SDKProvider, DisplayGate } from '@tma.js/sdk-solid';
 import { App } from './App';
 import { setDebug } from '@tma.js/sdk';
 
-/**
- * This component is the layer controlling the application display.
- * It displays application in case, the SDK is initialized, displays an error
- * if something went wrong, and a loader if the SDK is warming up.
- */
-function Loader(props: ParentProps) {
-  const {
-    loading,
-    error,
-    initResult,
-  } = useSDKContext();
-  const errorMessage = createMemo(() => {
-    const err = error();
-    if (!err) {
-      return null;
-    }
+interface SDKProviderErrorProps {
+  error: unknown;
+}
 
-    return err instanceof Error ? err.message : 'Unknown error';
-  });
+function SDKProviderError(props: SDKProviderErrorProps) {
+  const message = () => {
+    return props.error instanceof Error
+      ? props.error.message
+      : JSON.stringify(props.error);
+  };
 
   return (
-    <Switch fallback={props.children}>
-      <Match when={errorMessage()}>
-        <p>
-          SDK was unable to initialize. Probably, current application
-          is being used not in Telegram Mini Apps environment.
-        </p>
-        <blockquote>
-          <p>{errorMessage()}</p>
-        </blockquote>
-      </Match>
-      <Match when={loading()}>
-        <div>Loading..</div>
-      </Match>
-      <Match when={!loading() && !error() && !initResult()}>
-        <div>SDK init function is not yet called.</div>
-      </Match>
-    </Switch>
+    <div>
+      Oops. Something went wrong.
+      <blockquote>
+        <code>
+          {message()}
+        </code>
+      </blockquote>
+    </div>
   );
+}
+
+function SDKProviderLoading() {
+  return <div>SDK is loading.</div>;
+}
+
+function SDKInitialState() {
+  return <div>Waiting for initialization to start.</div>;
 }
 
 /**
  * Root component of the whole project.
  */
 export function Root() {
-  const options: InitOptions = {
-    async: true,
-    cssVars: true,
-    acceptCustomStyles: true,
-  };
-
   // Enable debug mode.
   setDebug(true);
 
   return (
-    <SDKProvider options={options}>
-      <Loader>
+    <SDKProvider
+      options={{
+        async: true,
+        cssVars: true,
+        acceptCustomStyles: true,
+      }}
+    >
+      <DisplayGate
+        error={SDKProviderError}
+        loading={SDKProviderLoading}
+        initial={SDKInitialState}
+      >
         <App/>
-      </Loader>
+      </DisplayGate>
     </SDKProvider>
   );
 }
