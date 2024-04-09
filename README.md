@@ -4,11 +4,10 @@ This boilerplate demonstrates how developers can implement a single-page applica
 Mini Apps platform using the following technologies:
 
 - [Solid.js](https://www.solidjs.com/)
+- [TON Connect](https://docs.ton.org/develop/dapps/ton-connect/overview)
 - [TypeScript](https://www.typescriptlang.org/)
 - [@tma.js SDK](https://docs.telegram-mini-apps.com/packages/tma-js-sdk)
 - [Vite](https://vitejs.dev/)
-
-[//]: # (- [TON Connect]&#40;https://docs.ton.org/develop/dapps/ton-connect/overview&#41;)
 
 > This boilerplate was created using [pnpm](https://pnpm.io/). Therefore, it is required to use
 > it for this project as well.
