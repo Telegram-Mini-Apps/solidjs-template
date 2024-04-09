@@ -1,82 +1,40 @@
+import { isRGB, type RGB as RGBType } from '@tma.js/sdk';
 import { For, Match, Switch } from 'solid-js';
-import { isRGB, type RGB } from '@tma.js/sdk';
+import type { Component, JSXElement } from 'solid-js';
 
-import styles from './styles.module.css';
+import { RGB } from '~/components/RGB/RGB.js';
 
-type LineValue = string | null | undefined | Line[];
-export type Line = [title: string, value: LineValue];
+import './DisplayData.css';
 
-interface DisplayDataProps {
+export interface DisplayDataRow {
   title: string;
-  lines: Line[];
+  value?: RGBType | string | boolean | JSXElement;
 }
 
-interface DataLineProps {
-  title: string;
-  value: LineValue;
+export interface DisplayDataProps {
+  rows: DisplayDataRow[];
 }
 
-interface DisplayRGBProps {
-  color: RGB;
-}
-
-function DisplayRGB(props: DisplayRGBProps) {
+export const DisplayData: Component<DisplayDataProps> = (props) => {
   return (
-    <div class={styles.colorWrapper}>
-      <div
-        class={styles.color}
-        style={{ 'background-color': props.color }}
-      />
-      {props.color}
-    </div>
-  );
-}
-
-function DataLine(props: DataLineProps) {
-  return (
-    <div class={styles.line}>
-      <Switch>
-        <Match when={Array.isArray(props.value) ? props.value : false}>
-          {(lines) => <DisplayData title={props.title} lines={lines()}/>}
-        </Match>
-        <Match when={true}>
-          <div class={styles.lineTitle}>
-            {props.title}
-          </div>
-          <div class={styles.lineValue}>
-            <code>
-              <Switch fallback={<i>No data</i>}>
-                <Match
-                  when={typeof props.value === 'string' && isRGB(props.value) ? props.value : false}
-                >
-                  {(rgb) => <DisplayRGB color={rgb()}/>}
+    <div>
+      <For each={props.rows}>
+        {(row) => (
+          <div class="display-data__line">
+            <span class="display-data__line-title">{row.title}</span>
+            <span class="display-data__line-value">
+              <Switch fallback={row.value}>
+                <Match when={typeof row.value === 'string' && isRGB(row.value) ? row.value : false}>
+                  {(color) => <RGB color={color()}/>}
                 </Match>
-                <Match when={typeof props.value === 'string' ? props.value : false}>
-                  {(stringValue) => stringValue()}
-                </Match>
+                <Match when={row.value === false}>❌</Match>
+                <Match when={row.value === true}>✔️</Match>
+                <Match when={row.value === undefined}><i>empty</i></Match>
               </Switch>
-            </code>
+            </span>
           </div>
-        </Match>
-      </Switch>
-    </div>
-  );
-}
-
-export function DisplayData(props: DisplayDataProps) {
-  return (
-    <div class={styles.root}>
-      <div class={styles.title}>
-        {props.title}
-      </div>
-      <For each={props.lines}>
-        {([title, value]) => (
-          <DataLine
-            title={title}
-            value={value}
-          />
         )}
       </For>
     </div>
   );
-}
+};

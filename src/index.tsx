@@ -1,9 +1,13 @@
 /* @refresh reload */
+import { setDebug } from '@tma.js/sdk';
 import { render } from 'solid-js/web';
+
+import { Root } from '~/components/Root.js';
 
 import './index.css';
 
-import { Root } from './Root';
+// Enable SDK debug mode to see all the TMA API calls.
+setDebug(true);
 
 const root = document.getElementById('root');
 

@@ -1,102 +1,119 @@
-import { Match, Switch } from 'solid-js';
-import { useInitData, useInitDataRaw } from '@tma.js/sdk-solid';
-import type { Chat, User } from '@tma.js/sdk';
+import { useInitData, useInitDataRaw, useLaunchParams } from '@tma.js/sdk-solid';
+import { createMemo, Show } from 'solid-js';
+import type { User } from '@tma.js/sdk';
+import type { Component } from 'solid-js';
 
-import { Link } from '../../components/Link';
-import { DisplayData, type Line } from '../../components/DisplayData';
+import { DisplayData, type DisplayDataRow } from '~/components/DisplayData/DisplayData.js';
+import { Link } from '~/components/Link/Link.js';
+import { Page } from '~/components/Page/Page.js';
 
-import styles from './styles.module.css';
+import './InitDataPage.css';
 
-function getUserLines(user: User): Line[] {
-  const {
-    id,
-    isBot,
-    isPremium,
-    languageCode = null,
-    lastName = null,
-    firstName,
-  } = user;
-
+function getUserRows(user: User): DisplayDataRow[] {
   return [
-    ['ID', id.toString()],
-    ['Last name', lastName],
-    ['First name', firstName],
-    ['Is bot', isBot ? 'yes' : 'no'],
-    ['Is premium', isPremium ? 'yes' : 'no'],
-    ['Language code', languageCode],
+    { title: 'id', value: user.id.toString() },
+    { title: 'last_name', value: user.lastName },
+    { title: 'first_name', value: user.firstName },
+    { title: 'is_bot', value: user.isBot },
+    { title: 'is_premium', value: user.isPremium },
+    { title: 'language_code', value: user.languageCode },
   ];
 }
 
-function getChatLines(chat: Chat): Line[] {
-  const {
-    id,
-    title,
-    type,
-    username = null,
-    photoUrl = null,
-  } = chat;
-
-  return [
-    ['ID', id.toString()],
-    ['Title', title],
-    ['Type', type],
-    ['Username', username],
-    ['Photo URL', photoUrl],
-  ];
-}
-
-export function InitDataPage() {
+export const InitDataPage: Component = () => {
   const initData = useInitData();
   const initDataRaw = useInitDataRaw();
+  console.log(useLaunchParams());
 
-  const whenWithData = () => {
-    const typed = initData();
+  const initDataRows = createMemo<DisplayDataRow[] | undefined>(() => {
+    console.log(initData(), initDataRaw());
+    const complete = initData();
     const raw = initDataRaw();
 
-    return typed && raw ? { typed, raw } : false;
-  };
+    return complete && raw
+      ? [
+        { title: 'raw', value: raw },
+        { title: 'auth_date', value: complete.authDate.toLocaleString() },
+        { title: 'auth_date (raw)', value: complete.authDate.getTime() / 1000 },
+        { title: 'hash', value: complete.hash },
+        { title: 'can_send_after', value: complete.canSendAfterDate?.toISOString() },
+        { title: 'can_send_after (raw)', value: complete.canSendAfter },
+        { title: 'query_id', value: complete.queryId },
+        { title: 'start_param', value: complete.startParam },
+        { title: 'chat_type', value: complete.chatType },
+        { title: 'chat_instance', value: complete.chatInstance },
+      ]
+      : undefined;
+  });
+
+  const userRows = createMemo<DisplayDataRow[] | undefined>(() => {
+    const user = initData()?.user;
+    return user ? getUserRows(user) : undefined;
+  });
+
+  const receiverRows = createMemo<DisplayDataRow[] | undefined>(() => {
+    const receiver = initData()?.receiver;
+    return receiver ? getUserRows(receiver) : undefined;
+  });
+
+  const chatRows = createMemo<DisplayDataRow[] | undefined>(() => {
+    const chat = initData()?.chat;
+    return chat
+      ? [
+        { title: 'id', value: chat.id.toString() },
+        { title: 'title', value: chat.title },
+        { title: 'type', value: chat.type },
+        { title: 'username', value: chat.username },
+        { title: 'photo_url', value: chat.photoUrl },
+      ]
+      : undefined;
+  });
 
   return (
-    <div class={styles.root}>
-      <Link class={styles.link} href="/theme-params">
-        To theme parameters
-      </Link>
-      <Switch fallback={'Current launch parameters don\'t contain init data information.'}>
-        <Match when={whenWithData()}>
-          {(match) => {
-            const lines = (): Line[] => {
-              const {
-                authDate,
-                chat,
-                hash,
-                canSendAfter,
-                queryId,
-                receiver,
-                user,
-                startParam,
-                chatType,
-                chatInstance,
-              } = match().typed;
+    <Page
+      title="Init Data"
+      disclaimer={(
+        <>
+          This page displays application
+          {' '}
+          <Link href="https://docs.telegram-mini-apps.com/platform/launch-parameters">
+            init data
+          </Link>
+          .
+        </>
+      )}
+    >
+      <Show when={initDataRows()} fallback={<i>Application was launched with missing init data</i>}>
+        {(rows) => (
+          <>
+            <div class="init-data-page__section">
+              <h2 class="init-data-page__section-title">Init data</h2>
+              <DisplayData rows={rows()}/>
+            </div>
 
-              return [
-                ['Raw', match().raw],
-                ['Auth date', authDate.toLocaleString()],
-                ['Hash', hash],
-                ['Can send after', canSendAfter ? canSendAfter.toString() : null],
-                ['Query id', queryId],
-                ['Start param', startParam],
-                ['Chat type', chatType],
-                ['Chat instance', chatInstance],
-                ['Receiver', receiver ? getUserLines(receiver) : null],
-                ['Chat', chat ? getChatLines(chat) : null],
-                ['User', user ? getUserLines(user) : null],
-              ];
-            };
+            <div class="init-data-page__section">
+              <h2 class="init-data-page__section-title">User</h2>
+              <Show when={userRows()} fallback={<i>User information missing</i>}>
+                {(uRows) => <DisplayData rows={uRows()}/>}
+              </Show>
+            </div>
 
-            return <DisplayData title="Init data" lines={lines()}/>;
-          }}
-        </Match>
-      </Switch>
-    </div>
+            <div class="init-data-page__section">
+              <h2 class="init-data-page__section-title">Receiver</h2>
+              <Show when={receiverRows()} fallback={<i>Receiver information missing</i>}>
+                {(rRows) => <DisplayData rows={rRows()}/>}
+              </Show>
+            </div>
+
+            <div class="init-data-page__section">
+              <h2 class="init-data-page__section-title">Chat</h2>
+              <Show when={chatRows()} fallback={<i>Chat information missing</i>}>
+                {(cRows) => <DisplayData rows={cRows()}/>}
+              </Show>
+            </div>
+          </>
+        )}
+      </Show>
+    </Page>
   );
-}
+};
