@@ -1,26 +1,12 @@
-import { readFileSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { defineConfig, type ServerOptions } from 'vite';
+// import { readFileSync } from 'node:fs';
+// import { dirname, resolve } from 'node:path';
+// import { fileURLToPath } from 'node:url';
+import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
-
-/**
- * Returns Vite dev server options.
- */
-function getServerOptions(): ServerOptions {
-  const dir = dirname(fileURLToPath(import.meta.url));
-
-  return {
-    port: 443,
-    https: {
-      cert: readFileSync(resolve(dir, './https-cert.pem')),
-      key: readFileSync(resolve(dir, './https-key.pem')),
-    },
-    host: 'tma.internal',
-  };
-}
+import tsconfigPaths from 'vite-tsconfig-paths';
 
 export default defineConfig({
+  base: '/solidjs-template/',
   plugins: [
     /* 
     Uncomment the following line to enable solid-devtools.
@@ -28,11 +14,23 @@ export default defineConfig({
     */
     // devtools(),
     solidPlugin(),
+    tsconfigPaths(),
   ],
-  // Uncomment this line in case, you would like to run Vite dev server using HTTPS and in case,
-  // you have key and certificate.
-  // server: getServerOptions(),
+  // Uncomment the next lines in case, you would like to run Vite dev server using HTTPS and in case,
+  // you have key and certificate. You retrieve your certificate and key using mkcert.
+  // Learn more:
+  // https://docs.telegram-mini-apps.com/platform/getting-app-link#mkcert
+  //
+  // server: {
+  //   port: 443,
+  //   https: {
+  //     cert: readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), './https-cert.pem')),
+  //     key: readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), './https-key.pem')),
+  //   },
+  //   host: 'tma.internal',
+  // },
   build: {
     target: 'esnext',
   },
+  publicDir: './public'
 });
