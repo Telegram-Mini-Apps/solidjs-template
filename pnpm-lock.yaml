@@ -14,12 +14,12 @@ dependencies:
   '@tma.js/sdk-solid':
     specifier: ^2.0.1
     version: 2.0.1(@tma.js/sdk@1.5.1)(solid-js@1.8.16)
-  '@tma.js/solid-router-integration':
-    specifier: ^1.0.16
-    version: 1.0.16(@solidjs/router@0.13.1)
   '@tonconnect/ui':
     specifier: ^2.0.0
     version: 2.0.0
+  eruda:
+    specifier: ^3.0.1
+    version: 3.0.1
   solid-js:
     specifier: ^1.8.16
     version: 1.8.16
@@ -959,15 +959,6 @@ packages:
     resolution: {integrity: sha512-M0kzo840GntTuhd6ywYof3DPddhOxM7ODd0JlyJeTsJHexL2D0+REuFPLUNddDh66rUfXOaAdFU79WDVa6wy9A==}
     dev: false
 
-  /@tma.js/solid-router-integration@1.0.16(@solidjs/router@0.13.1):
-    resolution: {integrity: sha512-ubDrNE/MQ+7epIVApbzJxktSkaVLH8Sjxh3ah9WpHqsQroVxqlb/hHBSUEuw6/KaL6TWa3d2VAXm+XqwW98wbA==}
-    peerDependencies:
-      '@solidjs/router': ^0.x
-    dependencies:
-      '@solidjs/router': 0.13.1(solid-js@1.8.16)
-      '@tma.js/sdk': 1.5.1
-    dev: false
-
   /@tonconnect/isomorphic-eventsource@0.0.2:
     resolution: {integrity: sha512-B4UoIjPi0QkvIzZH5fV3BQLWrqSYABdrzZQSI9sJA9aA+iC0ohOzFwVVGXanlxeDAy1bcvPbb29f6sVUk0UnnQ==}
     dependencies:
@@ -1690,6 +1681,10 @@ packages:
   /emoji-regex@9.2.2:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
     dev: true
+
+  /eruda@3.0.1:
+    resolution: {integrity: sha512-6q1Xdwga4JTr1mKSW4mzuWSSbmXgqpm/8Wa1QGFGfCWRjC0bCQjbS4u06M1te1moucIS3hBLlbSTPWYH2W0qbQ==}
+    dev: false
 
   /es-abstract@1.23.3:
     resolution: {integrity: sha512-e+HfNH61Bj1X9/jLc5v1owaLYuHdeHHSQlkhCBiTK8rBvKaULl/beGMxwrMXjpYrv4pz22BlY570vVePA2ho4A==}

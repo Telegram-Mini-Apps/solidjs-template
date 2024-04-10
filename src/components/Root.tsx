@@ -1,4 +1,5 @@
-import { DisplayGate, SDKProvider } from '@tma.js/sdk-solid';
+import { setDebug } from '@tma.js/sdk';
+import { DisplayGate, SDKProvider, useLaunchParams } from '@tma.js/sdk-solid';
 import type { Component } from 'solid-js';
 
 import { App } from '~/components/App.js';
@@ -21,14 +22,21 @@ const Loading: Component = () => (
   <div>Application is loading</div>
 );
 
-export const Root: Component = () => (
-  <TonConnectUIProvider
-    manifestUrl={new URL('tonconnect-manifest.json', window.location.href).toString()}
-  >
-    <SDKProvider options={{ acceptCustomStyles: true, cssVars: true, complete: true }}>
-      <DisplayGate error={Err} loading={Loading} initial={Loading}>
-        <App/>
-      </DisplayGate>
-    </SDKProvider>
-  </TonConnectUIProvider>
-);
+export const Root: Component = () => {
+  if (useLaunchParams().startParam === 'debug') {
+    setDebug(true);
+    import('eruda').then((lib) => lib.default.init());
+  }
+
+  return (
+    <TonConnectUIProvider
+      manifestUrl={new URL('tonconnect-manifest.json', window.location.href).toString()}
+    >
+      <SDKProvider options={{ acceptCustomStyles: true, cssVars: true, complete: true }}>
+        <DisplayGate error={Err} loading={Loading} initial={Loading}>
+          <App/>
+        </DisplayGate>
+      </SDKProvider>
+    </TonConnectUIProvider>
+  );
+};

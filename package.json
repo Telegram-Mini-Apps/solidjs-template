@@ -22,6 +22,7 @@
     "@tma.js/sdk": "^1.5.1",
     "@tma.js/sdk-solid": "^2.0.1",
     "@tonconnect/ui": "^2.0.0",
+    "eruda": "^3.0.1",
     "solid-js": "^1.8.16"
   },
   "devDependencies": {
