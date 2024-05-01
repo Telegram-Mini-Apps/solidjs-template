@@ -4,7 +4,7 @@ import type { Component } from 'solid-js';
 import { useTonConnectUI } from '~/tonconnect/TonConnectUIContext.js';
 
 export const TonConnectButton: Component = () => {
-  const [_, { setUIOptions }] = useTonConnectUI();
+  const [, { setUIOptions }] = useTonConnectUI();
   const buttonRootId = 'ton-connect-button';
 
   onMount(() => {

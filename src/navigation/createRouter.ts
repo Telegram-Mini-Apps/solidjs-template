@@ -1,7 +1,7 @@
 import { createRouter as createSolidRouter } from '@solidjs/router';
 import { getHash } from '@tma.js/sdk';
 import type { BaseRouterProps } from '@solidjs/router';
-import type { HashNavigator, HashNavigatorEventListener } from '@tma.js/sdk';
+import type { HashNavigator } from '@tma.js/sdk';
 import type { Component } from 'solid-js';
 
 /**
@@ -64,21 +64,17 @@ export function createRouter(navigator: HashNavigator): Component<BaseRouterProp
 
     // This function is called when Router context is initialized. It is the best place to
     // bind to navigator state changes, which could occur outside.
-    init: (notify: (value: string) => void) => {
-      const onChange: HashNavigatorEventListener<'change'> = (event) => {
-        const {
-          to: {
-            hash,
-            pathname,
-            search,
-          },
-        } = event;
+    init: (notify) => navigator.on('change', (event) => {
+      const {
+        to: {
+          hash,
+          pathname,
+          search,
+        },
+      } = event;
 
-        notify(`${pathname}${search}${hash}`);
-      };
-
-      return navigator.on('change', onChange);
-    },
+      notify(`${pathname}${search}${hash}`);
+    }),
 
     utils: {
       go(delta: number) {

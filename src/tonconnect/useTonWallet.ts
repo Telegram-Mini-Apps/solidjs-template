@@ -1,5 +1,5 @@
 import { createEffect, createSignal, onCleanup } from 'solid-js';
-import type { ConnectedWallet, Wallet, WalletInfoWithOpenMethod } from '@tonconnect/ui';
+import type { Wallet, WalletInfoWithOpenMethod } from '@tonconnect/ui';
 import type { Accessor } from 'solid-js';
 
 import { useTonConnectUI } from './useTonConnectUI.js';
@@ -16,7 +16,7 @@ export function useTonWallet(): Accessor<Wallet | (Wallet & WalletInfoWithOpenMe
   );
 
   createEffect(() => onCleanup(
-    tonConnectUI().onStatusChange((value: ConnectedWallet | null) => {
+    tonConnectUI().onStatusChange((value) => {
       setWallet(value);
     }),
   ));

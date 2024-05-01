@@ -4,7 +4,7 @@ import type { Component, JSX } from 'solid-js';
 
 import './RGB.css';
 
-export type RGBProps = JSX.IntrinsicElements['div'] & {
+export type RGBProps = JSX.IntrinsicElements['span'] & {
   color: RGBType;
 };
 

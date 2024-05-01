@@ -1,4 +1,4 @@
-import { useInitData, useInitDataRaw, useLaunchParams } from '@tma.js/sdk-solid';
+import { useInitData, useInitDataRaw } from '@tma.js/sdk-solid';
 import { createMemo, Show } from 'solid-js';
 import type { User } from '@tma.js/sdk';
 import type { Component } from 'solid-js';
@@ -23,10 +23,8 @@ function getUserRows(user: User): DisplayDataRow[] {
 export const InitDataPage: Component = () => {
   const initData = useInitData();
   const initDataRaw = useInitDataRaw();
-  console.log(useLaunchParams());
 
   const initDataRows = createMemo<DisplayDataRow[] | undefined>(() => {
-    console.log(initData(), initDataRaw());
     const complete = initData();
     const raw = initDataRaw();
 
