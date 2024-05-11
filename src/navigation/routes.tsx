@@ -1,10 +1,10 @@
 import type { Component } from 'solid-js';
 
-import { IndexPage } from '~/pages/IndexPage/IndexPage.js';
-import { InitDataPage } from '~/pages/InitDataPage/InitDataPage.js';
-import { LaunchParamsPage } from '~/pages/LaunchParamsPage.js';
-import { ThemeParamsPage } from '~/pages/ThemeParamsPage.js';
-import { TonConnectPage } from '~/pages/TonConnectPage/TonConnectPage.js';
+import { IndexPage } from '@/pages/IndexPage/IndexPage.js';
+import { InitDataPage } from '@/pages/InitDataPage/InitDataPage.js';
+import { LaunchParamsPage } from '@/pages/LaunchParamsPage.js';
+import { ThemeParamsPage } from '@/pages/ThemeParamsPage.js';
+import { TonConnectPage } from '@/pages/TonConnectPage/TonConnectPage.js';
 
 interface Route {
   path: string;

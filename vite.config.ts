@@ -8,7 +8,7 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   base: '/solidjs-template/',
   plugins: [
-    /* 
+    /*
     Uncomment the following line to enable solid-devtools.
     For more info see https://github.com/thetarnav/solid-devtools/tree/main/packages/extension#readme
     */
@@ -24,8 +24,8 @@ export default defineConfig({
   // server: {
   //   port: 443,
   //   https: {
-  //     cert: readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), './https-cert.pem')),
-  //     key: readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), './https-key.pem')),
+  //     cert: readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), './tma.internal.pem')),
+  //     key: readFileSync(resolve(dirname(fileURLToPath(import.meta.url)), './tma.internal-key.pem')),
   //   },
   //   host: 'tma.internal',
   // },

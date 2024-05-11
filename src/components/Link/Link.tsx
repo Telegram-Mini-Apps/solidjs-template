@@ -1,7 +1,5 @@
-import { A } from '@solidjs/router';
-import { classNames } from '@tma.js/sdk';
-import { useUtils } from '@tma.js/sdk-solid';
-import type { AnchorProps } from '@solidjs/router';
+import { A, type AnchorProps } from '@solidjs/router';
+import { classNames, useUtils } from '@tma.js/sdk-solid';
 import type { Component } from 'solid-js';
 
 import './Link.css';

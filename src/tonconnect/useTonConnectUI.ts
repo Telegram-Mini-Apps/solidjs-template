@@ -1,7 +1,9 @@
 import { useContext } from 'solid-js';
 
-import { TonConnectUIContext } from '~/tonconnect/TonConnectUIContext.js';
-import type { TonConnectUIContextType } from '~/tonconnect/TonConnectUIContext.js';
+import {
+  TonConnectUIContext,
+  type TonConnectUIContextType,
+} from '@/tonconnect/TonConnectUIContext.js';
 
 export function useTonConnectUI(): TonConnectUIContextType {
   const context = useContext(TonConnectUIContext);

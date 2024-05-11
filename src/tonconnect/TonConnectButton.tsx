@@ -1,7 +1,6 @@
-import { onCleanup, onMount } from 'solid-js';
-import type { Component } from 'solid-js';
+import { onCleanup, onMount, type Component } from 'solid-js';
 
-import { useTonConnectUI } from '~/tonconnect/TonConnectUIContext.js';
+import { useTonConnectUI } from '@/tonconnect/TonConnectUIContext.js';
 
 export const TonConnectButton: Component = () => {
   const [, { setUIOptions }] = useTonConnectUI();

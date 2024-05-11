@@ -1,6 +1,5 @@
-import { createEffect, createSignal, onCleanup } from 'solid-js';
+import { createEffect, createSignal, onCleanup, type Accessor } from 'solid-js';
 import type { Wallet, WalletInfoWithOpenMethod } from '@tonconnect/ui';
-import type { Accessor } from 'solid-js';
 
 import { useTonConnectUI } from './useTonConnectUI.js';
 

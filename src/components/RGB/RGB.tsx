@@ -1,6 +1,5 @@
-import { classNames, type RGB as RGBType } from '@tma.js/sdk';
-import { splitProps } from 'solid-js';
-import type { Component, JSX } from 'solid-js';
+import { classNames, type RGB as RGBType } from '@tma.js/sdk-solid';
+import { type Component, type JSX, splitProps } from 'solid-js';
 
 import './RGB.css';
 

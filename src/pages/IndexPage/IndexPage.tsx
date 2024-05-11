@@ -1,10 +1,9 @@
-import { For, Show } from 'solid-js';
+import { For, Show, type Component } from 'solid-js';
 import { Dynamic } from 'solid-js/web';
-import type { Component } from 'solid-js';
 
-import { Link } from '~/components/Link/Link.js';
-import { Page } from '~/components/Page/Page.js';
-import { routes } from '~/navigation/routes.js';
+import { Link } from '@/components/Link/Link.js';
+import { Page } from '@/components/Page/Page.js';
+import { routes } from '@/navigation/routes.js';
 
 import './IndexPage.css';
 

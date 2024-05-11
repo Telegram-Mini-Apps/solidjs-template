@@ -1,11 +1,10 @@
-import { Show } from 'solid-js';
-import type { Component } from 'solid-js';
+import { Show, type Component } from 'solid-js';
 
-import { DisplayData } from '~/components/DisplayData/DisplayData.js';
-import { Link } from '~/components/Link/Link.js';
-import { Page } from '~/components/Page/Page.js';
-import { TonConnectButton } from '~/tonconnect/TonConnectButton.js';
-import { useTonWallet } from '~/tonconnect/useTonWallet.js';
+import { DisplayData } from '@/components/DisplayData/DisplayData.js';
+import { Link } from '@/components/Link/Link.js';
+import { Page } from '@/components/Page/Page.js';
+import { TonConnectButton } from '@/tonconnect/TonConnectButton.js';
+import { useTonWallet } from '@/tonconnect/useTonWallet.js';
 
 import './TonConnectPage.css';
 

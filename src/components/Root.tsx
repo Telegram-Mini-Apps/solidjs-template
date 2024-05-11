@@ -1,30 +1,12 @@
-import { setDebug } from '@tma.js/sdk';
-import { DisplayGate, SDKProvider, useLaunchParams } from '@tma.js/sdk-solid';
-import type { Component } from 'solid-js';
+import { retrieveLaunchParams, SDKProvider } from '@tma.js/sdk-solid';
+import { ErrorBoundary, type Component, Switch, Match } from 'solid-js';
 
-import { App } from '~/components/App.js';
-import { TonConnectUIProvider } from '~/tonconnect/TonConnectUIProvider.js';
+import { App } from '@/components/App.js';
+import { TonConnectUIProvider } from '@/tonconnect/TonConnectUIProvider.js';
 
-const Err: Component<{ error: unknown }> = (props) => (
-  <div>
-    <p>An error occurred while initializing the SDK</p>
-    <blockquote>
-      <code>
-        {props.error instanceof Error
-          ? props.error.message
-          : JSON.stringify(props.error)}
-      </code>
-    </blockquote>
-  </div>
-);
-
-const Loading: Component = () => (
-  <div>Application is loading</div>
-);
-
-export const Root: Component = () => {
-  if (useLaunchParams().startParam === 'debug') {
-    setDebug(true);
+const Inner: Component = () => {
+  const debug = retrieveLaunchParams().startParam === 'debug';
+  if (debug) {
     import('eruda').then((lib) => lib.default.init());
   }
 
@@ -32,11 +14,39 @@ export const Root: Component = () => {
     <TonConnectUIProvider
       manifestUrl={new URL('tonconnect-manifest.json', window.location.href).toString()}
     >
-      <SDKProvider options={{ acceptCustomStyles: true, cssVars: true, complete: true }}>
-        <DisplayGate error={Err} loading={Loading} initial={Loading}>
-          <App/>
-        </DisplayGate>
+      <SDKProvider acceptCustomStyles={true} debug={debug}>
+        <App/>
       </SDKProvider>
     </TonConnectUIProvider>
+  );
+};
+
+export const Root: Component = () => {
+  return (
+    <ErrorBoundary
+      fallback={err => {
+        console.error('ErrorBoundary handled error:', err);
+
+        return (
+          <div>
+            <p>ErrorBoundary handled error:</p>
+            <blockquote>
+              <code>
+                <Switch fallback={JSON.stringify(err)}>
+                  <Match when={typeof err === 'string' ? err : false}>
+                    {v => v()}
+                  </Match>
+                  <Match when={err instanceof Error ? err.message : false}>
+                    {v => v()}
+                  </Match>
+                </Switch>
+              </code>
+            </blockquote>
+          </div>
+        );
+      }}
+    >
+      <Inner/>
+    </ErrorBoundary>
   );
 };

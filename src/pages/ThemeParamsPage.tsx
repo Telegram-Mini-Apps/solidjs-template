@@ -1,9 +1,9 @@
 import { useThemeParams } from '@tma.js/sdk-solid';
 import type { Component } from 'solid-js';
 
-import { DisplayData } from '~/components/DisplayData/DisplayData.js';
-import { Link } from '~/components/Link/Link.js';
-import { Page } from '~/components/Page/Page.js';
+import { DisplayData } from '@/components/DisplayData/DisplayData.js';
+import { Link } from '@/components/Link/Link.js';
+import { Page } from '@/components/Page/Page.js';
 
 export const ThemeParamsPage: Component = () => {
   const themeParams = useThemeParams();

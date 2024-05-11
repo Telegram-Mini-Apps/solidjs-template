@@ -1,8 +1,7 @@
-import { isRGB, type RGB as RGBType } from '@tma.js/sdk';
-import { For, Match, Switch } from 'solid-js';
-import type { Component, JSXElement } from 'solid-js';
+import { isRGB, type RGB as RGBType } from '@tma.js/sdk-solid';
+import { type Component, For, type JSXElement, Match, Switch } from 'solid-js';
 
-import { RGB } from '~/components/RGB/RGB.js';
+import { RGB } from '@/components/RGB/RGB.js';
 
 import './DisplayData.css';
 
