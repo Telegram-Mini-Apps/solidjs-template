@@ -18,18 +18,19 @@
     "access": "public"
   },
   "dependencies": {
-    "@solidjs/router": "^0.13.1",
-    "@tma.js/sdk-solid": "^2.1.0",
-    "@tma.js/solid-router-integration": "^2.0.0",
-    "@tonconnect/ui": "^2.0.0",
+    "@solidjs/router": "^0.13.6",
+    "@tma.js/sdk-solid": "^2.1.8",
+    "@tma.js/solid-router-integration": "^5.0.2",
+    "@tonconnect/ui": "^2.0.5",
     "eruda": "^3.0.1",
-    "solid-js": "^1.8.16"
+    "solid-js": "^1.8.17"
   },
   "devDependencies": {
     "@eslint/js": "^9.2.0",
     "@types/node": "^20.12.5",
     "@typescript-eslint/eslint-plugin": "^7.8.0",
     "@typescript-eslint/parser": "^7.8.0",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
     "eslint": "^8.57.0",
     "eslint-plugin-solid": "^0.14.0",
     "gh-pages": "^6.1.1",
