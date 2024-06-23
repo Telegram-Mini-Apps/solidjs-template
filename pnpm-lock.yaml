@@ -15,8 +15,8 @@ importers:
         specifier: ^2.1.8
         version: 2.1.8(solid-js@1.8.17)
       '@tma.js/solid-router-integration':
-        specifier: ^5.0.2
-        version: 5.0.2(@solidjs/router@0.13.6(solid-js@1.8.17))(@tma.js/sdk@2.5.1)(solid-js@1.8.17)
+        specifier: ^5.0.3
+        version: 5.0.3(@solidjs/router@0.13.6(solid-js@1.8.17))(@tma.js/sdk@2.5.1)(solid-js@1.8.17)
       '@tonconnect/ui':
         specifier: ^2.0.5
         version: 2.0.5
@@ -567,11 +567,11 @@ packages:
   '@tma.js/sdk@2.5.1':
     resolution: {integrity: sha512-uUFv3oINGRwkh4KbGxMq9OxDdSQOhH9O45i9i0aqen6pIakeiIxxzrF8Yhv2xSFWrn8V+gaOpr3IDrushlo5TA==}
 
-  '@tma.js/solid-router-integration@5.0.2':
-    resolution: {integrity: sha512-I8TWphqQNQemSqJZdFhOu11NFDESQ0i8wNGvbtamZeqyDpyT5qfLw8cmHwH40vrHa97TG0wspqcDsb9ouhXAYA==}
+  '@tma.js/solid-router-integration@5.0.3':
+    resolution: {integrity: sha512-mNmnJjFkMc74D/KNVG2shUDs/Lbd7DgccJzqqLR/GUMHrXOBNq0lJjuU/TKIoddYURqeE/0ha7ZB7ZIpJxNlzQ==}
     peerDependencies:
       '@solidjs/router': ^0.13.1
-      '@tma.js/sdk': 2.5.0
+      '@tma.js/sdk': ^2.5.1
       solid-js: ^1.8.16
 
   '@tonconnect/isomorphic-eventsource@0.0.2':
@@ -2010,7 +2010,7 @@ snapshots:
 
   '@tma.js/sdk@2.5.1': {}
 
-  '@tma.js/solid-router-integration@5.0.2(@solidjs/router@0.13.6(solid-js@1.8.17))(@tma.js/sdk@2.5.1)(solid-js@1.8.17)':
+  '@tma.js/solid-router-integration@5.0.3(@solidjs/router@0.13.6(solid-js@1.8.17))(@tma.js/sdk@2.5.1)(solid-js@1.8.17)':
     dependencies:
       '@solidjs/router': 0.13.6(solid-js@1.8.17)
       '@tma.js/sdk': 2.5.1
