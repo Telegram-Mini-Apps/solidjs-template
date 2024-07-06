@@ -6,7 +6,7 @@ Mini Apps platform using the following technologies and libraries:
 - [Solid](https://solidjs.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [TON Connect](https://docs.ton.org/develop/dapps/ton-connect/overview)
-- [@tma.js SDK](https://docs.telegram-mini-apps.com/packages/tma-js-sdk)
+- [@telegram-apps SDK](https://docs.telegram-mini-apps.com/packages/telegram-apps-sdk)
 - [Vite](https://vitejs.dev/)
 
 > This boilerplate was created using [pnpm](https://pnpm.io/). Therefore, it is required to use
@@ -68,7 +68,7 @@ VITE ready in 275 ms
 To view the application, you need to open the `Local`
 link (`http://localhost:5173/solidjs-template` in this example) in your browser.
 
-It is important to note that some libraries in this template, such as `@tma.js/sdk-solid`, are not
+It is important to note that some libraries in this template, such as `@telegram-apps/sdk-solid`, are not
 intended for use outside of Telegram.
 
 Nevertheless, they appear to function properly. This is because the `src/mockEnv.ts` file, which is
@@ -240,5 +240,5 @@ project's information.
 ## Useful Links
 
 - [Platform documentation](https://docs.telegram-mini-apps.com/)
-- [@tma.js/sdk-solid documentation](https://docs.telegram-mini-apps.com/packages/tma-js-sdk-solid)
+- [@telegram-apps/sdk-solid documentation](https://docs.telegram-mini-apps.com/packages/telegram-apps-sdk-solid)
 - [Telegram developers community chat](https://t.me/devs)

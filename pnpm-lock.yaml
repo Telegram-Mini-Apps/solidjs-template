@@ -11,12 +11,12 @@ importers:
       '@solidjs/router':
         specifier: ^0.13.6
         version: 0.13.6(solid-js@1.8.17)
-      '@tma.js/sdk-solid':
-        specifier: ^2.1.8
-        version: 2.1.8(solid-js@1.8.17)
-      '@tma.js/solid-router-integration':
-        specifier: ^5.0.3
-        version: 5.0.3(@solidjs/router@0.13.6(solid-js@1.8.17))(@tma.js/sdk@2.5.1)(solid-js@1.8.17)
+      '@telegram-apps/sdk-solid':
+        specifier: ^1.0.0
+        version: 1.0.0(solid-js@1.8.17)
+      '@telegram-apps/solid-router-integration':
+        specifier: ^1.0.0
+        version: 1.0.0(@solidjs/router@0.13.6(solid-js@1.8.17))(@telegram-apps/sdk@1.0.0)(solid-js@1.8.17)
       '@tonconnect/ui':
         specifier: ^2.0.5
         version: 2.0.5
@@ -559,19 +559,19 @@ packages:
     peerDependencies:
       solid-js: ^1.8.6
 
-  '@tma.js/sdk-solid@2.1.8':
-    resolution: {integrity: sha512-Cy6mLnx0Phx5bgCxM/H5cSp95BjjJ8jIpPezNG7O1rSj3h6CeBbbxXwHPah9/TaMNAy9M5K69BMNjnACZQ7AvA==}
+  '@telegram-apps/sdk-solid@1.0.0':
+    resolution: {integrity: sha512-OTcPkVTotiXZp7koJwSyOuNcKVUVFZqhOhOzE1e/qZWoGY3UsGldQ2lU8aAyiP/zUZW7fleixaNtbvgmFEw4xg==}
     peerDependencies:
       solid-js: ^1.0.0
 
-  '@tma.js/sdk@2.5.1':
-    resolution: {integrity: sha512-uUFv3oINGRwkh4KbGxMq9OxDdSQOhH9O45i9i0aqen6pIakeiIxxzrF8Yhv2xSFWrn8V+gaOpr3IDrushlo5TA==}
+  '@telegram-apps/sdk@1.0.0':
+    resolution: {integrity: sha512-lnmYrmti4hF1AuVVflkgHpVSsnwhPnukuc2sM5AZ4eKVM6ZMzPpeZtHyEdft5GqxgmePhN8+sTJuQRbvqCJvjQ==}
 
-  '@tma.js/solid-router-integration@5.0.3':
-    resolution: {integrity: sha512-mNmnJjFkMc74D/KNVG2shUDs/Lbd7DgccJzqqLR/GUMHrXOBNq0lJjuU/TKIoddYURqeE/0ha7ZB7ZIpJxNlzQ==}
+  '@telegram-apps/solid-router-integration@1.0.0':
+    resolution: {integrity: sha512-+FHBsJzqPXwWFVIJxXf8ZADCcSLHlayUZKMfwEvPNUrTpDM8Px5FrLHew2NRIB0q0+eT2rKzyycn9IFR8RzkUg==}
     peerDependencies:
       '@solidjs/router': ^0.13.1
-      '@tma.js/sdk': ^2.5.1
+      '@telegram-apps/sdk': ^1.0.0
       solid-js: ^1.8.16
 
   '@tonconnect/isomorphic-eventsource@0.0.2':
@@ -2003,17 +2003,17 @@ snapshots:
     dependencies:
       solid-js: 1.8.17
 
-  '@tma.js/sdk-solid@2.1.8(solid-js@1.8.17)':
+  '@telegram-apps/sdk-solid@1.0.0(solid-js@1.8.17)':
     dependencies:
-      '@tma.js/sdk': 2.5.1
+      '@telegram-apps/sdk': 1.0.0
       solid-js: 1.8.17
 
-  '@tma.js/sdk@2.5.1': {}
+  '@telegram-apps/sdk@1.0.0': {}
 
-  '@tma.js/solid-router-integration@5.0.3(@solidjs/router@0.13.6(solid-js@1.8.17))(@tma.js/sdk@2.5.1)(solid-js@1.8.17)':
+  '@telegram-apps/solid-router-integration@1.0.0(@solidjs/router@0.13.6(solid-js@1.8.17))(@telegram-apps/sdk@1.0.0)(solid-js@1.8.17)':
     dependencies:
       '@solidjs/router': 0.13.6(solid-js@1.8.17)
-      '@tma.js/sdk': 2.5.1
+      '@telegram-apps/sdk': 1.0.0
       solid-js: 1.8.17
 
   '@tonconnect/isomorphic-eventsource@0.0.2':

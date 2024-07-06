@@ -1,4 +1,4 @@
-import { retrieveLaunchParams } from '@tma.js/sdk-solid';
+import { retrieveLaunchParams } from '@telegram-apps/sdk-solid';
 import type { Component } from 'solid-js';
 
 import { DisplayData } from '@/components/DisplayData/DisplayData.js';
