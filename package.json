@@ -19,8 +19,7 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.13.6",
-    "@telegram-apps/sdk-solid": "^1.0.0",
-    "@telegram-apps/solid-router-integration": "^1.0.0",
+    "@telegram-apps/sdk-solid": "^2.0.5",
     "@tonconnect/ui": "^2.0.5",
     "eruda": "^3.0.1",
     "solid-js": "^1.8.17"
@@ -39,6 +38,7 @@
     "typescript": "^5.4.4",
     "typescript-eslint": "^7.8.0",
     "vite": "^5.2.11",
+    "vite-plugin-mkcert": "^1.17.6",
     "vite-plugin-solid": "^2.10.2",
     "vite-tsconfig-paths": "^4.3.2"
   }
