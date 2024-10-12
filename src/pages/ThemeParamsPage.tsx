@@ -10,7 +10,6 @@ export const ThemeParamsPage: Component = () => {
 
   return (
     <Page
-      back
       title="Theme Params"
       disclaimer={(
         <>

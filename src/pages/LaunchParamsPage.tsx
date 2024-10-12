@@ -10,7 +10,6 @@ export const LaunchParamsPage: Component = () => {
 
   return (
     <Page
-      back
       title="Launch Params"
       disclaimer={(
         <>

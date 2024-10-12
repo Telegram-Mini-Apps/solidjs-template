@@ -83,7 +83,6 @@ export const InitDataPage: Component = () => {
 
   return (
     <Page
-      back
       title="Init Data"
       disclaimer={(
         <>
