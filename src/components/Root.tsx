@@ -3,6 +3,7 @@ import { ErrorBoundary, type Component, Switch, Match } from 'solid-js';
 
 import { App } from '@/components/App.js';
 import { TonConnectUIProvider } from '@/tonconnect/TonConnectUIProvider.js';
+import { publicUrl } from '@/helpers/publicUrl.js';
 
 const Inner: Component = () => {
   const debug = retrieveLaunchParams().startParam === 'debug';
@@ -11,9 +12,7 @@ const Inner: Component = () => {
   }
 
   return (
-    <TonConnectUIProvider
-      manifestUrl={new URL('tonconnect-manifest.json', window.location.href).toString()}
-    >
+    <TonConnectUIProvider manifestUrl={publicUrl('tonconnect-manifest.json')}>
       <SDKProvider acceptCustomStyles={true} debug={debug}>
         <App/>
       </SDKProvider>
