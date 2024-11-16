@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import solidPlugin from 'vite-plugin-solid';
 import tsconfigPaths from 'vite-tsconfig-paths';
-// import basicSsl from '@vitejs/plugin-basic-ssl';
+import mkcert from 'vite-plugin-mkcert';
 
 export default defineConfig({
   base: '/solidjs-template',
@@ -13,9 +13,9 @@ export default defineConfig({
     // Allows using the compilerOptions.paths property in tsconfig.json.
     // https://www.npmjs.com/package/vite-tsconfig-paths
     tsconfigPaths(),
-    // Allows using self-signed certificates to run the dev server using HTTPS.
-    // https://www.npmjs.com/package/@vitejs/plugin-basic-ssl
-    // basicSsl(),
+    // Create a custom SSL certificate valid for the local machine.
+    // https://www.npmjs.com/package/vite-plugin-mkcert
+    mkcert(),
   ],
   build: {
     target: 'esnext',

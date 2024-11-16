@@ -1,13 +1,17 @@
 /* @refresh reload */
 import { render } from 'solid-js/web';
+import { retrieveLaunchParams } from '@telegram-apps/sdk-solid';
+
+import { Root } from '@/components/Root.js';
+import { init } from '@/init.js';
 
 import './index.css';
 
-import { Root } from '@/components/Root.js';
-
-// Uncomment this import in case, you would like to develop the application even outside
-// the Telegram application, just in your browser.
+// Mock the environment in case, we are outside Telegram.
 import './mockEnv.js';
+
+// Configure all application dependencies.
+init(retrieveLaunchParams().startParam === 'debug' || import.meta.env.DEV);
 
 const root = document.getElementById('root');
 
