@@ -1,4 +1,4 @@
-import { retrieveLaunchParams, SDKProvider } from '@telegram-apps/sdk-solid';
+import { retrieveLaunchParams } from '@telegram-apps/sdk-solid';
 import { ErrorBoundary, type Component, Switch, Match } from 'solid-js';
 
 import { App } from '@/components/App.js';
@@ -13,9 +13,7 @@ const Inner: Component = () => {
 
   return (
     <TonConnectUIProvider manifestUrl={publicUrl('tonconnect-manifest.json')}>
-      <SDKProvider acceptCustomStyles={true} debug={debug}>
-        <App/>
-      </SDKProvider>
+      <App/>
     </TonConnectUIProvider>
   );
 };
