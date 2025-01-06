@@ -65,7 +65,7 @@ npm run dev:https
 > As long as we use [vite-plugin-mkcert](https://www.npmjs.com/package/vite-plugin-mkcert),
 > launching the dev mode for the first time, you may see sudo password request.
 > The plugin requires it to properly configure SSL-certificates. To disable the plugin, use
-> the `npm run dev` command.
+> the `pnpm run dev` command.
 
 After this, you will see a similar message in your terminal:
 
