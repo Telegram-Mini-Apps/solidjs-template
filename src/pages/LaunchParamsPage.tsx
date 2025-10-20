@@ -1,4 +1,4 @@
-import { retrieveLaunchParams } from '@telegram-apps/sdk-solid';
+import { retrieveLaunchParams } from '@tma.js/sdk-solid';
 import type { Component } from 'solid-js';
 
 import { DisplayData } from '@/components/DisplayData/DisplayData.js';
@@ -24,11 +24,11 @@ export const LaunchParamsPage: Component = () => {
     >
       <DisplayData
         rows={[
-          { title: 'tgWebAppPlatform', value: lp.platform },
-          { title: 'tgWebAppShowSettings', value: lp.showSettings },
-          { title: 'tgWebAppVersion', value: lp.version },
-          { title: 'tgWebAppBotInline', value: lp.botInline },
-          { title: 'tgWebAppStartParam', value: lp.startParam },
+          { title: 'tgWebAppPlatform', value: lp.tgWebAppPlatform },
+          { title: 'tgWebAppShowSettings', value: lp.tgWebAppShowSettings },
+          { title: 'tgWebAppVersion', value: lp.tgWebAppVersion },
+          { title: 'tgWebAppBotInline', value: lp.tgWebAppBotInline },
+          { title: 'tgWebAppStartParam', value: lp.tgWebAppStartParam },
           { title: 'tgWebAppData', value: <Link href="/init-data">View</Link> },
           { title: 'tgWebAppThemeParams', value: <Link href="/theme-params">View</Link> },
         ]}

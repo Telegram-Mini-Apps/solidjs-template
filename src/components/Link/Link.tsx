@@ -1,6 +1,8 @@
 import { A, type AnchorProps } from '@solidjs/router';
-import { classNames, openLink } from '@telegram-apps/sdk-solid';
+import { openLink } from '@tma.js/sdk-solid';
 import type { Component } from 'solid-js';
+
+import { classNames } from '@/css/classnames.js';
 
 import './Link.css';
 

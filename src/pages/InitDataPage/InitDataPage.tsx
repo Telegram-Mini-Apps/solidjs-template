@@ -1,4 +1,4 @@
-import { initData, type User, useSignal } from '@telegram-apps/sdk-solid';
+import { initData, type User, useSignal } from '@tma.js/sdk-solid';
 import { createMemo, Show, type Component } from 'solid-js';
 
 import {
@@ -11,18 +11,7 @@ import { Page } from '@/components/Page/Page.js';
 import './InitDataPage.css';
 
 function getUserRows(user: User): DisplayDataRow[] {
-  return [
-    { title: 'id', value: user.id.toString() },
-    { title: 'username', value: user.username },
-    { title: 'photo_url', value: user.photoUrl },
-    { title: 'last_name', value: user.lastName },
-    { title: 'first_name', value: user.firstName },
-    { title: 'is_bot', value: user.isBot },
-    { title: 'is_premium', value: user.isPremium },
-    { title: 'language_code', value: user.languageCode },
-    { title: 'allows_to_write_to_pm', value: user.allowsWriteToPm },
-    { title: 'added_to_attachment_menu', value: user.addedToAttachmentMenu },
-  ];
+  return Object.entries(user).map(([title, value]) => ({ title, value }));
 }
 
 export const InitDataPage: Component = () => {
@@ -35,26 +24,16 @@ export const InitDataPage: Component = () => {
     if (!state || !raw) {
       return;
     }
-    const {
-      authDate,
-      hash,
-      queryId,
-      chatType,
-      chatInstance,
-      canSendAfter,
-      startParam,
-    } = state;
     return [
       { title: 'raw', value: raw },
-      { title: 'auth_date', value: authDate.toLocaleString() },
-      { title: 'auth_date (raw)', value: authDate.getTime() / 1000 },
-      { title: 'hash', value: hash },
-      { title: 'can_send_after', value: initData.canSendAfterDate()?.toISOString() },
-      { title: 'can_send_after (raw)', value: canSendAfter },
-      { title: 'query_id', value: queryId },
-      { title: 'start_param', value: startParam },
-      { title: 'chat_type', value: chatType },
-      { title: 'chat_instance', value: chatInstance },
+      ...Object.entries(initDataState).reduce<DisplayDataRow[]>((acc, [title, value]) => {
+        if (value instanceof Date) {
+          acc.push({ title, value: value.toISOString() });
+        } else if (!value || typeof value !== 'object') {
+          acc.push({ title, value });
+        }
+        return acc;
+      }, []),
     ];
   });
 
@@ -71,13 +50,7 @@ export const InitDataPage: Component = () => {
   const chatRows = createMemo<DisplayDataRow[] | undefined>(() => {
     const chat = initDataState()?.chat;
     return chat
-      ? [
-        { title: 'id', value: chat.id.toString() },
-        { title: 'title', value: chat.title },
-        { title: 'type', value: chat.type },
-        { title: 'username', value: chat.username },
-        { title: 'photo_url', value: chat.photoUrl },
-      ]
+      ? Object.entries(chat).map(([title, value]) => ({ title, value }))
       : undefined;
   });
 

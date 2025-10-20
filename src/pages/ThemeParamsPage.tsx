@@ -1,4 +1,4 @@
-import { useSignal, themeParams } from '@telegram-apps/sdk-solid';
+import { useSignal, themeParams } from '@tma.js/sdk-solid';
 import type { Component } from 'solid-js';
 
 import { DisplayData } from '@/components/DisplayData/DisplayData.js';

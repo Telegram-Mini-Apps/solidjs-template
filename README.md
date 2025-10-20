@@ -7,7 +7,7 @@ and libraries:
 - [Solid](https://solidjs.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [TON Connect](https://docs.ton.org/develop/dapps/ton-connect/overview)
-- [@telegram-apps SDK](https://docs.telegram-mini-apps.com/packages/telegram-apps-sdk/2-x)
+- [@tma.js SDK](https://docs.telegram-mini-apps.com/packages/tma-js-sdk)
 - [Vite](https://vitejs.dev/)
 
 > This boilerplate was created using [pnpm](https://pnpm.io/). Therefore, it is
@@ -87,7 +87,7 @@ link (`https://localhost:5173/solidjs-template` in this example) in your
 browser.
 
 It is important to note that some libraries in this template, such as
-`@telegram-apps/sdk-solid`, are not intended for use outside of Telegram.
+`@tma.js/sdk-solid`, are not intended for use outside of Telegram.
 
 Nevertheless, they appear to function properly. This is because the
 `src/mockEnv.ts` file, which is imported in the application's entry point (
@@ -208,5 +208,5 @@ file according to your project's information.
 ## Useful Links
 
 - [Platform documentation](https://docs.telegram-mini-apps.com/)
-- [@telegram-apps/sdk-solid documentation](https://docs.telegram-mini-apps.com/packages/telegram-apps-sdk-solid)
+- [@tma.js/sdk-solid documentation](https://docs.telegram-mini-apps.com/packages/tma-js-sdk-solid)
 - [Telegram developers community chat](https://t.me/devs)

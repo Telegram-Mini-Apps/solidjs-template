@@ -2,10 +2,10 @@ import {
   type Component,
   createEffect,
   createMemo,
-  type JSX,
+  type JSX, onCleanup,
   type ParentProps,
 } from 'solid-js';
-import { backButton } from '@telegram-apps/sdk-solid';
+import { backButton } from '@tma.js/sdk-solid';
 
 import { useNavigate } from '@solidjs/router';
 
@@ -28,9 +28,10 @@ export const Page: Component<PageProps> = (props) => {
   createEffect(() => {
     if (back()) {
       backButton.show();
-      return backButton.onClick(() => {
+      onCleanup(backButton.onClick(() => {
         navigate(-1);
-      });
+      }));
+      return;
     }
     backButton.hide();
   });

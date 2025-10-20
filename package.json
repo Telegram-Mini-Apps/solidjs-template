@@ -20,10 +20,10 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.13.6",
-    "@telegram-apps/sdk-solid": "^2.0.5",
+    "@tma.js/sdk-solid": "^3.0.4",
     "@tonconnect/ui": "^2.0.5",
     "eruda": "^3.0.1",
-    "solid-js": "^1.8.17"
+    "solid-js": "^1.9.9"
   },
   "devDependencies": {
     "@eslint/js": "^9.2.0",
