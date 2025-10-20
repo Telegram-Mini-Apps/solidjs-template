@@ -209,4 +209,4 @@ file according to your project's information.
 
 - [Platform documentation](https://docs.telegram-mini-apps.com/)
 - [@tma.js/sdk-solid documentation](https://docs.telegram-mini-apps.com/packages/tma-js-sdk-solid)
-- [Telegram developers community chat](https://t.me/devs)
+- [Telegram developers community chat](https://t.me/devs_cis)
