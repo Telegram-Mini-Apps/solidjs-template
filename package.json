@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.13.6",
-    "@tma.js/sdk-solid": "^3.0.4",
+    "@tma.js/sdk-solid": "^3.0.7",
     "@tonconnect/ui": "^2.0.5",
     "eruda": "^3.0.1",
     "solid-js": "^1.9.9"
