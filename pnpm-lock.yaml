@@ -12,8 +12,8 @@ importers:
         specifier: ^0.13.6
         version: 0.13.6(solid-js@1.9.9)
       '@tma.js/sdk-solid':
-        specifier: ^3.0.7
-        version: 3.0.7(solid-js@1.9.9)(typescript@5.4.4)
+        specifier: ^3.0.8
+        version: 3.0.8(solid-js@1.9.9)(typescript@5.4.4)
       '@tonconnect/ui':
         specifier: ^2.0.5
         version: 2.0.5
@@ -617,13 +617,13 @@ packages:
   '@tma.js/bridge@2.1.3':
     resolution: {integrity: sha512-mJPdGP3AgQ10ovW2A/yKdLPqhMt1Mx/uHvXRz1qyyy9L6kQlCojx68ib1Km7jumKdYvljy3470Yhk18V65pcdw==}
 
-  '@tma.js/sdk-solid@3.0.7':
-    resolution: {integrity: sha512-QYTYNKonFe+OBoCOW3S/7wTDRsyegFBlTCyrFQnqgysYU9U6nU06YGQoKUrFfuGNM04qCByW8cnBiVhXloR3qQ==}
+  '@tma.js/sdk-solid@3.0.8':
+    resolution: {integrity: sha512-jpU0iL2+Sj3qMSm9agcusxqi2az/X75nQvYDMjrA5a6FAXuTSzvVslEfDdA1KxD3ugm9jz0uR11XEi0hdOS0mg==}
     peerDependencies:
       solid-js: ^1.0.0
 
-  '@tma.js/sdk@3.0.7':
-    resolution: {integrity: sha512-5CEHqs3HQTEjls+XLkZ5IS+j9dwVfCnQFoaL3jRwQqISqHDrLYds1h4TLvZ+vROTaAxVyJZtbLA+QorX+TldDw==}
+  '@tma.js/sdk@3.0.8':
+    resolution: {integrity: sha512-4tHISijTSKe6Oi/nw1OB/sQShuVOfCxmRZzFGvWkNPQRrQ0p6H8p4KTe83VB/0Zvas0jzIZ6cnKLas/0Sm8nFw==}
 
   '@tma.js/signals@1.0.1':
     resolution: {integrity: sha512-i2HUuwGqL4BmM5KAklAUhMhlEgUOF+F4nMHHS/zxrmD0upHE/0CiXCEdQxVeeOGN6e2RrKlonA40sDtR6OUDCw==}
@@ -2236,14 +2236,14 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@tma.js/sdk-solid@3.0.7(solid-js@1.9.9)(typescript@5.4.4)':
+  '@tma.js/sdk-solid@3.0.8(solid-js@1.9.9)(typescript@5.4.4)':
     dependencies:
-      '@tma.js/sdk': 3.0.7(typescript@5.4.4)
+      '@tma.js/sdk': 3.0.8(typescript@5.4.4)
       solid-js: 1.9.9
     transitivePeerDependencies:
       - typescript
 
-  '@tma.js/sdk@3.0.7(typescript@5.4.4)':
+  '@tma.js/sdk@3.0.8(typescript@5.4.4)':
     dependencies:
       '@tma.js/bridge': 2.1.3(typescript@5.4.4)
       '@tma.js/signals': 1.0.1
